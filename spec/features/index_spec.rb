@@ -19,4 +19,15 @@ feature 'chitter homepage' do
     expect(page).to have_content "Anonymous peeped:"
     expect(page).to have_content "test peep"
   end
+
+  it 'uses the form on the homepage to add a new peep' do
+    visit '/'
+    fill_in 'username', with: 'DanT'
+    fill_in 'peep_text', with: 'I like turtles'
+    click_button 'Submit'
+
+    expect(current_path).to eq '/'
+    expect(page).to have_content 'DanT peeped:'
+    expect(page).to have_content 'I like turtles'
+  end
 end

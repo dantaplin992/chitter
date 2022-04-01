@@ -1,5 +1,24 @@
 Chitter
+<table>
+  <tr>
+    <td colspan="3">Add new Peep:</td>
+  </tr>
+  <tr>
+    <form action="/new_peep" method="post">
+    <td>Username: <input type="text" name="username"></td>
+    <td>Peep: <input type="text" name="peep_text"></td>
+    <td><input type="submit" value="Submit"></td>
+    </form>
+  </tr>
+</table>
 
-<% peeps.each do |peep| %>
-  <p><%= peep["username"] %> peeped: <%= peep["text"] %></p>
-<% end %>
+<table>
+  <% peeps.each do |peep| %>
+    <tr>
+      <td><strong><%= peep["username"] %></strong> peeped:</td>
+    </tr>
+    <tr>
+      <td><%= peep["text"] %></td>
+    </tr>
+  <% end %>
+</table>

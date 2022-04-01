@@ -12,6 +12,7 @@ class Peep
   end
 
   def self.create(text, username='Anonymous')
+    username = 'Anonymous' if username.empty?
     DatabaseConnection.query(
       'INSERT INTO peeps (text, username) VALUES($1, $2);',
       [text, username]
