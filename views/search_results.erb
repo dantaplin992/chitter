@@ -1,0 +1,15 @@
+<head>
+  <link rel="stylesheet" href="<%= url('/style.css') %>">
+</head>
+<body>
+  <table class="banner">
+    <tr>
+      <td>
+        <h1 class="header">Seach results for: <%= search_term %>
+      </td>
+    </tr>
+  </table>
+  <% results.each do |result|%>
+    <%= result["text"] %>
+  <% end %>
+</body>

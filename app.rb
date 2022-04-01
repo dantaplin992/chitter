@@ -21,5 +21,10 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post "/search" do
+    erb(:search_results, locals: { results: Peep.search(params[:search_text]), search_term: params[:search_text] })
+  end
+
+
   run! if app_file == $0
 end

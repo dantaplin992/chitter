@@ -1,5 +1,6 @@
 require 'peep'
 require 'pg'
+require 'date'
 
 feature 'chitter homepage' do
   it 'displays the homepage' do
@@ -29,5 +30,13 @@ feature 'chitter homepage' do
     expect(current_path).to eq '/'
     expect(page).to have_content 'DanT peeped:'
     expect(page).to have_content 'I like turtles'
+  end
+
+  it 'displays the date each peep was posted' do
+    allow(Peep).to receive(:get_date).and_return(DateTime.new(2022, 04, 01, 14, 30))
+    Peep.create("Hellooo")
+    visit '/'
+    expect(first('.peep')).to have_content '2022-04-01 14:30:00'
+    expect(first('.peep')).to have_content 'Hellooo'
   end
 end

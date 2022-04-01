@@ -1,0 +1,47 @@
+.header {
+  text-align: Left;
+  color: white;
+}
+
+.banner {
+  margin: auto;
+  width: 50%;
+  table-layout: fixed;
+  width: 100%;
+  background-color: rgb(129, 177, 224);
+  padding: 10px;
+  
+}
+
+.search {
+  text-align: right;
+}
+
+.peep {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.feed {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.form {
+  margin: auto;
+  width: 50%;
+  table-layout: fixed;
+  width: 400px;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,24 +1,51 @@
-Chitter
-<table>
-  <tr>
-    <td colspan="3">Add new Peep:</td>
-  </tr>
-  <tr>
-    <form action="/new_peep" method="post">
-    <td>Username: <input type="text" name="username"></td>
-    <td>Peep: <input type="text" name="peep_text"></td>
-    <td><input type="submit" value="Submit"></td>
-    </form>
-  </tr>
-</table>
+<head>
+  <link rel="stylesheet" href="<%= url('/style.css') %>">
+</head>
+<body>
+  <table class="banner">
+    <tr>
+      <td colspan="2"><h1 class="header">Chitter</h1></td>
+      <td class="right">
+        <form action="/search" method="post">
+          <input type="text" name="search_text"><input type="submit" value="Search">
+        </form>
+      </td>
+    </tr>
+  </table>
+  <table class="form">
+    <tr>
+      <td colspan="2" class="center">Add new Peep:</td>
+    </tr>
+    <tr>
+      <form action="/new_peep" method="post">
+        <tr>
+          <td class="right">Username: </td>
+          <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+          <td class="right">Peep: </td>
+          <td><input type="text" name="peep_text"></td>
+        </tr>
+      <tr><td colspan="2" class="center"><input type="submit" value="Submit"></td></tr>
+      </form>
+    </tr>
+  </table>
 
-<table>
-  <% peeps.each do |peep| %>
-    <tr>
-      <td><strong><%= peep["username"] %></strong> peeped:</td>
-    </tr>
-    <tr>
-      <td><%= peep["text"] %></td>
-    </tr>
-  <% end %>
-</table>
+  <table class="feed">
+    <% peeps.each do |peep| %>
+      <tr>
+        <table class="peep">
+          <tr>
+            <td><strong><%= peep["username"] %></strong> peeped:</td>
+          </tr>
+          <tr>
+            <td><%= peep["text"] %></td>
+          </tr>
+          <tr>
+            <td><%= peep["date_time"] %></td>
+          </tr>
+        </table>
+      </tr>
+    <% end %>
+  </table>
+</body>
