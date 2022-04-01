@@ -12,7 +12,7 @@ RSpec.describe DatabaseConnection do
     expect(DatabaseConnection.connection).to eq connection
   end
 
-  xit 'executes a query via PG' do
+  it 'executes a query via PG' do
     connection = DatabaseConnection.setup('chitter_test')
 
     expect(connection).to receive(:exec_params).with("SELECT * FROM peeps;", [])

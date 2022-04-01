@@ -12,4 +12,11 @@ feature 'chitter homepage' do
     visit '/'
     expect(page).to have_content "test peep"
   end
+
+  it 'displays who wrote each peep alongside the text' do
+    Peep.create("test peep")
+    visit '/'
+    expect(page).to have_content "Anonymous peeped:"
+    expect(page).to have_content "test peep"
+  end
 end
