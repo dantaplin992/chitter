@@ -5,3 +5,10 @@ source "https://rubygems.org"
 # gem "rails"
 
 gem "rspec", "~> 3.11"
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'capybara', group: :test
+gem 'pg'
+group :development, :test do
+  gem "rubocop", "1.20"
+end
